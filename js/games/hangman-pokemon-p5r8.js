@@ -206,7 +206,7 @@ function initializeHangmanPokemon(root, app) {
   const solveCancelBtn = root.getElementById("solveCancelBtn");
   const TOPICS = ["Pokemon All Names", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "Gen 7", "Gen 8", "Gen 9", "Moves + Abilities", "Moves", "Abilities", "Final Evolutions", "Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"];
   const topicsBtn=root.getElementById("topicsBtn"), topicsCount=root.getElementById("topicsCount"), topicsOverlay=root.getElementById("topicsOverlay"), topicsGrid=root.getElementById("topicsGrid"), topicsClose=root.getElementById("topicsClose"), selectAllTopics=root.getElementById("selectAllTopics"), clearTopics=root.getElementById("clearTopics"), cancelTopics=root.getElementById("cancelTopics"), applyTopics=root.getElementById("applyTopics");
-  let selectedTopics=new Set(TOPICS), draftTopics=new Set(TOPICS);
+  let selectedTopics=new Set(["Pokemon All Names"]), draftTopics=new Set(["Pokemon All Names"]);
 
   let answer="", guessed=new Set(), misses=[], wrongCount=0;
   let active=false, solveMode=false, solveBuffer="", confirmNewWord=false, confirmTimer=null;
