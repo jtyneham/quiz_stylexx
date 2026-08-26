@@ -1537,3 +1537,46 @@ button,input{font-family:Arial,Helvetica,sans-serif!important}
 .misses{position:relative!important;background:#050505!important;border:.16rem solid #fff!important;box-shadow:.22rem .22rem 0 var(--p5-red)!important;padding:.32rem .6rem .38rem!important;transform:rotate(.45deg)}
 .misses-label{color:#fff!important;text-shadow:2px 2px 0 #000!important;margin-bottom:.22rem!important}
 @media(max-width:31rem){.status-row{grid-template-columns:auto 1fr auto!important;gap:.35rem!important;padding:.5rem!important}.status-actions{gap:.28rem!important}.home-button{height:2.45rem!important;min-height:2.45rem!important;padding-inline:.65rem!important}.fullscreen-btn{width:2.45rem!important}.topics-btn{min-height:2.45rem!important;padding-inline:.55rem!important;font-size:.82rem!important}.tries-text{font-size:.82rem!important}}
+
+/* Persona 5 calibration: topic selection indicator */
+.topics-btn span,#topicsCount{color:#ff2b2b!important;}
+
+
+/* Hangman multi-line word safety:
+   wrapped blanks must remain fully visible above the status/misses area. */
+.word-area,
+.word-display,
+#wordDisplay,
+.word{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+
+.word-display,
+#wordDisplay,
+.word{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-content:center!important;
+  justify-content:center!important;
+  row-gap:.72rem!important;
+  padding-block:.5rem .7rem!important;
+}
+
+.status-row,
+.misses,
+.tries-text,
+#triesText{
+  position:relative!important;
+}
+
+@media(max-width:40rem){
+  .word-display,
+  #wordDisplay,
+  .word{
+    row-gap:.58rem!important;
+    padding-block:.42rem .62rem!important;
+  }
+}
