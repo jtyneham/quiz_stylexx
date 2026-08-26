@@ -175,9 +175,9 @@ export function initRandomLetter(root, app) {
         );
         wedge.setAttribute(
           "fill",
-          index % 2 === 0 ? "#e60012" : "#dfe5ec"
+          index % 2 === 0 ? "#edf1f5" : "#dfe5ec"
         );
-        wedge.setAttribute("stroke", "#ffffff");
+        wedge.setAttribute("stroke", "#fffef8");
         wedge.setAttribute("stroke-width", "1.4");
         wheelSpinner.appendChild(wedge);
 

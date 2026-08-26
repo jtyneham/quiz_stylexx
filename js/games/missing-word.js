@@ -1054,10 +1054,13 @@ class QuizMissingWord extends HTMLElement {
     const root = this.attachShadow({mode:"open"});
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "css/missing-word.css";
+    link.href = "css/missing-word.css?v=p5r3";
+    const p5link = document.createElement("link");
+    p5link.rel = "stylesheet";
+    p5link.href = "css/persona5-shadow.css?v=p5r3";
     const wrapper = document.createElement("div");
     wrapper.innerHTML = templateHTML;
-    root.append(link, wrapper);
+    root.append(link, p5link, wrapper);
     initializeGame(root, appAPI);
   }
 }
