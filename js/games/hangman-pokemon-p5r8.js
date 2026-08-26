@@ -8,7 +8,10 @@ const templateHTML = `<div class="hangman-root">
     <div class="status-row">
       <div class="status-actions"><button class="home-button" id="homeButton" type="button" aria-label="Back to Home" title="Home">Home</button><button class="fullscreen-btn" id="fullscreenBtn" type="button" aria-label="Toggle fullscreen" title="Fullscreen">⛶</button></div>
 <button class="topics-btn" id="topicsBtn" type="button">Topics <span id="topicsCount">All</span></button>
-      <span class="tries-text" id="triesText">0 / 6 misses</span>
+      <div class="skull-counter" id="triesText" aria-label="0 of 6 misses">
+          <span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span>
+          <span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span>
+        </div>
     </div>
 
     <div class="hangman-wrap">
@@ -218,6 +221,49 @@ function initializeHangmanPokemon(root, app) {
   const KEY_HAPTIC_MS = 6;
   const ENTER_HAPTIC_MS = 8;
   const KEY_POPUP_MS = 105;
+
+
+  function decorateJokerHangman(){
+    const svg = shadow.querySelector(".hangman-svg, svg");
+    if(!svg || svg.querySelector(".joker-ui-decoration")) return;
+    const head = svg.querySelector("#head");
+    if(!head) return;
+
+    const ns="http://www.w3.org/2000/svg";
+    const g=document.createElementNS(ns,"g");
+    g.setAttribute("class","joker-ui-decoration");
+    g.setAttribute("pointer-events","none");
+
+    const bb=head.getBBox ? head.getBBox() : {x:120,y:90,width:42,height:42};
+    const cx=bb.x+bb.width/2, cy=bb.y+bb.height/2;
+
+    const hair=document.createElementNS(ns,"path");
+    hair.setAttribute("d",`M ${cx-20} ${cy-7} L ${cx-11} ${cy-27} L ${cx-3} ${cy-18} L ${cx+5} ${cy-31} L ${cx+11} ${cy-16} L ${cx+22} ${cy-23} L ${cx+17} ${cy-4} Z`);
+    hair.setAttribute("fill","#050505");
+    hair.setAttribute("stroke","#fff");
+    hair.setAttribute("stroke-width","2.2");
+
+    const mask=document.createElementNS(ns,"path");
+    mask.setAttribute("class","joker-mask");
+    mask.setAttribute("d",`M ${cx-16} ${cy-5} Q ${cx-8} ${cy-12} ${cx} ${cy-7} Q ${cx+8} ${cy-12} ${cx+16} ${cy-5} L ${cx+9} ${cy+5} Q ${cx+4} ${cy+1} ${cx} ${cy+4} Q ${cx-4} ${cy+1} ${cx-9} ${cy+5} Z`);
+    mask.setAttribute("fill","#fff");
+    mask.setAttribute("stroke","#050505");
+    mask.setAttribute("stroke-width","1.8");
+
+    g.append(hair,mask);
+    head.parentNode.appendChild(g);
+  }
+
+  function updateSkullCounter(){
+    const missCount = wrongGuesses instanceof Set ? wrongGuesses.size :
+      Array.isArray(wrongGuesses) ? wrongGuesses.length :
+      (typeof wrongCount === "number" ? wrongCount : 0);
+    triesText?.setAttribute("aria-label", `${missCount} of ${maxWrong ?? 6} misses`);
+    triesText?.querySelectorAll(".miss-skull").forEach((skull, i) => {
+      skull.classList.toggle("active", i < missCount);
+    });
+  }
+
 
   function vibrate(p){ if("vibrate" in navigator) navigator.vibrate(p); }
 

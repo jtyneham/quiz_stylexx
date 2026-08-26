@@ -1647,3 +1647,109 @@ button,input{font-family:Arial,Helvetica,sans-serif!important}
     row-gap:.45rem!important;
   }
 }
+
+
+/* Persona 5 Hangman: Joker scaffold + skull miss counter */
+.skull-counter{
+  display:grid!important;
+  grid-template-columns:repeat(3,1.05rem)!important;
+  grid-template-rows:repeat(2,1.05rem)!important;
+  gap:.18rem .22rem!important;
+  align-items:center!important;
+  justify-items:center!important;
+  justify-content:center!important;
+  padding:.35rem .45rem!important;
+  background:#050505!important;
+  border:.14rem solid #fff!important;
+  box-shadow:.16rem .16rem 0 #e60012!important;
+  transform:rotate(1deg)!important;
+  min-width:4.1rem!important;
+  line-height:1!important;
+}
+
+.miss-skull{
+  display:block!important;
+  color:#666!important;
+  font-size:.95rem!important;
+  filter:grayscale(1)!important;
+  opacity:.88!important;
+  text-shadow:0 0 .02rem #000!important;
+  transition:color .14s linear, transform .14s linear, filter .14s linear!important;
+}
+
+.miss-skull.active{
+  color:#ff2b2b!important;
+  filter:none!important;
+  opacity:1!important;
+  transform:scale(1.08) rotate(-5deg)!important;
+  text-shadow:.06rem .06rem 0 #000!important;
+}
+
+/* Re-skin the existing SVG gallows as a Persona-style graphic construction. */
+.hangman-svg .gallows,
+.hangman-svg [data-part="gallows"],
+.hangman-svg line,
+.hangman-svg rect,
+.hangman-svg path.scaffold{
+  stroke:#050505!important;
+  stroke-width:8!important;
+  stroke-linecap:square!important;
+  stroke-linejoin:miter!important;
+  filter:drop-shadow(3px 2px 0 #fff) drop-shadow(5px 4px 0 #e60012)!important;
+}
+
+.hangman-svg .rope,
+.hangman-svg [data-part="rope"]{
+  stroke:#f4e6c2!important;
+  stroke-width:4!important;
+  filter:drop-shadow(1px 1px 0 #000)!important;
+}
+
+/* Joker silhouette treatment for the six progressive body parts. */
+.hangman-svg .joker-part,
+.hangman-svg [id="head"],
+.hangman-svg [id="body"],
+.hangman-svg [id="leftArm"],
+.hangman-svg [id="rightArm"],
+.hangman-svg [id="leftLeg"],
+.hangman-svg [id="rightLeg"]{
+  stroke:#fff!important;
+  stroke-width:4!important;
+  fill:#050505!important;
+  filter:drop-shadow(2px 2px 0 #e60012)!important;
+}
+
+.hangman-svg [id="head"]{
+  fill:#050505!important;
+}
+
+/* Mask motif on the head, drawn with pseudo-like SVG-safe overlay using current head geometry emphasis. */
+.hangman-svg [id="head"] + .joker-mask,
+.hangman-svg .joker-mask{
+  fill:#fff!important;
+  stroke:#050505!important;
+  stroke-width:2!important;
+}
+
+/* Make body/limbs read like Joker's long coat rather than a plain stickman. */
+.hangman-svg [id="body"]{
+  stroke-width:7!important;
+}
+
+.hangman-svg [id="leftArm"],
+.hangman-svg [id="rightArm"],
+.hangman-svg [id="leftLeg"],
+.hangman-svg [id="rightLeg"]{
+  stroke-width:6!important;
+}
+
+@media(max-width:40rem){
+  .skull-counter{
+    grid-template-columns:repeat(3,.92rem)!important;
+    grid-template-rows:repeat(2,.92rem)!important;
+    min-width:3.65rem!important;
+    padding:.28rem .34rem!important;
+    gap:.14rem .16rem!important;
+  }
+  .miss-skull{font-size:.84rem!important;}
+}
