@@ -1580,3 +1580,70 @@ button,input{font-family:Arial,Helvetica,sans-serif!important}
     padding-block:.42rem .62rem!important;
   }
 }
+
+
+/* Hangman wrapped-slot visibility — actual word-zone fix.
+   The previous patch targeted generic word-display selectors; Hangman
+   actually renders blanks inside .word-zone > .slots. */
+.word-zone{
+  height:auto!important;
+  min-height:clamp(4.6rem,12svh,7rem)!important;
+  overflow:visible!important;
+  align-self:stretch!important;
+  padding:.45rem .45rem .7rem!important;
+}
+
+.slots{
+  height:auto!important;
+  min-height:min-content!important;
+  max-height:none!important;
+  overflow:visible!important;
+  align-content:center!important;
+  row-gap:clamp(.55rem,1.4svh,.85rem)!important;
+}
+
+/* The game grid previously capped the word row at ~10svh on some
+   breakpoints, which is only enough for one line of blanks. Let that row
+   size itself to however many wrapped rows are required. */
+.game-card{
+  grid-template-rows:
+    auto
+    minmax(0,1fr)
+    minmax(min-content,max-content)
+    auto
+    auto
+    auto
+    auto!important;
+}
+
+/* Software-keyboard layout uses flex instead of the grid above. */
+.hangman-root.keyboard-open .word-zone{
+  flex:0 0 auto!important;
+  height:auto!important;
+  min-height:clamp(4.6rem,12svh,7rem)!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+
+.hangman-root.keyboard-open .slots{
+  height:auto!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+
+@media(max-height:42rem){
+  .word-zone,
+  .hangman-root.keyboard-open .word-zone{
+    min-height:4.35rem!important;
+  }
+
+  .letter-slot,
+  .hangman-root.keyboard-open .letter-slot{
+    height:clamp(1.65rem,5svh,2.25rem)!important;
+  }
+
+  .slots,
+  .hangman-root.keyboard-open .slots{
+    row-gap:.45rem!important;
+  }
+}
