@@ -1762,3 +1762,210 @@ button,input{font-family:Arial,Helvetica,sans-serif!important}
   }
   .miss-skull{font-size:.84rem!important;}
 }
+
+
+/* Persona 5 Hangman — actual replacement visuals */
+.skull-counter{
+  display:grid!important;
+  grid-template-columns:repeat(3,clamp(.95rem,3.1vw,1.18rem))!important;
+  grid-template-rows:repeat(2,clamp(.95rem,3.1vw,1.18rem))!important;
+  gap:.18rem .24rem!important;
+  align-items:center!important;
+  justify-items:center!important;
+  justify-content:center!important;
+  padding:.34rem .46rem!important;
+  min-width:4.2rem!important;
+  background:#050505!important;
+  border:.14rem solid #fff!important;
+  box-shadow:.18rem .18rem 0 #ff1f2d!important;
+  transform:rotate(1deg)!important;
+  overflow:visible!important;
+}
+
+.miss-skull{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  color:#606060!important;
+  transform:rotate(-2deg)!important;
+  transition:color .12s linear,transform .12s linear!important;
+}
+
+.miss-skull svg{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:visible!important;
+}
+
+.miss-skull svg path{
+  fill:currentColor!important;
+  stroke:#050505!important;
+  stroke-width:.65!important;
+  vector-effect:non-scaling-stroke!important;
+}
+
+.miss-skull.active{
+  color:#ff2638!important;
+  transform:scale(1.08) rotate(-5deg)!important;
+}
+
+.persona-hangman{
+  width:min(52vw,31svh)!important;
+  overflow:visible!important;
+  filter:none!important;
+}
+
+.persona-hangman path{
+  vector-effect:non-scaling-stroke!important;
+}
+
+.persona-hangman .p5-scaffold-outline{
+  fill:#fff!important;
+  stroke:#050505!important;
+  stroke-width:2.4!important;
+  stroke-linejoin:miter!important;
+}
+
+.persona-hangman .p5-scaffold-main{
+  fill:#050505!important;
+  stroke:#050505!important;
+  stroke-width:1.2!important;
+  stroke-linejoin:miter!important;
+}
+
+.persona-hangman .p5-scaffold-cut{
+  fill:#e60012!important;
+  stroke:none!important;
+}
+
+.persona-hangman .p5-rope-shadow{
+  fill:none!important;
+  stroke:#050505!important;
+  stroke-width:7!important;
+  stroke-linecap:butt!important;
+}
+
+.persona-hangman .p5-rope{
+  fill:none!important;
+  stroke:#d7b777!important;
+  stroke-width:3.2!important;
+  stroke-linecap:butt!important;
+}
+
+.persona-hangman .p5-knot{
+  fill:#d7b777!important;
+  stroke:#050505!important;
+  stroke-width:1.6!important;
+}
+
+.persona-hangman .p5-noose-front{
+  fill:none!important;
+  stroke:#d7b777!important;
+  stroke-width:3!important;
+  opacity:0!important;
+}
+
+.persona-hangman.head-revealed .p5-noose-front{
+  opacity:1!important;
+}
+
+.persona-hangman .joker-stage{
+  opacity:0!important;
+  transform-box:fill-box!important;
+  transform-origin:center!important;
+}
+
+.persona-hangman .joker-stage.show{
+  opacity:1!important;
+  animation:jokerReveal .18s cubic-bezier(.2,.85,.25,1) both!important;
+}
+
+.persona-hangman .joker-stage.drawn.show{
+  opacity:1!important;
+  animation:none!important;
+}
+
+@keyframes jokerReveal{
+  from{opacity:0;transform:scale(.84) rotate(-3deg)}
+  to{opacity:1;transform:scale(1) rotate(0)}
+}
+
+.persona-hangman .joker-hair,
+.persona-hangman .joker-coat,
+.persona-hangman .joker-coat-tail-center,
+.persona-hangman .joker-boot,
+.persona-hangman .joker-tail{
+  fill:#050505!important;
+  stroke:#fff!important;
+  stroke-width:2.3!important;
+  stroke-linejoin:miter!important;
+}
+
+.persona-hangman .joker-face{
+  fill:#050505!important;
+  stroke:#fff!important;
+  stroke-width:2!important;
+}
+
+.persona-hangman .joker-mask{
+  fill:#fff!important;
+  stroke:#050505!important;
+  stroke-width:1.5!important;
+  stroke-linejoin:miter!important;
+}
+
+.persona-hangman .joker-eye{
+  fill:none!important;
+  stroke:#e60012!important;
+  stroke-width:1.7!important;
+  stroke-linecap:round!important;
+}
+
+.persona-hangman .joker-lapel,
+.persona-hangman .joker-shirt{
+  fill:none!important;
+  stroke:#fff!important;
+  stroke-width:1.8!important;
+  stroke-linecap:square!important;
+}
+
+.persona-hangman .joker-limb,
+.persona-hangman .joker-leg{
+  fill:none!important;
+  stroke:#050505!important;
+  stroke-width:8!important;
+  stroke-linecap:round!important;
+  filter:drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff)!important;
+}
+
+.persona-hangman .joker-glove{
+  fill:#e60012!important;
+  stroke:#fff!important;
+  stroke-width:1.8!important;
+  stroke-linejoin:miter!important;
+}
+
+/* Kill old wooden-stickman styling for the replacement SVG. */
+.persona-hangman .wood-piece,
+.persona-hangman .wood-brace,
+.persona-hangman .wood-grain,
+.persona-hangman .body-head,
+.persona-hangman .body-core,
+.persona-hangman .body-limb,
+.persona-hangman .dead-eyes{
+  display:none!important;
+}
+
+@media(max-width:40rem){
+  .skull-counter{
+    grid-template-columns:repeat(3,.9rem)!important;
+    grid-template-rows:repeat(2,.9rem)!important;
+    min-width:3.65rem!important;
+    gap:.14rem .18rem!important;
+    padding:.28rem .34rem!important;
+  }
+  .persona-hangman{
+    width:min(56vw,29svh)!important;
+  }
+}

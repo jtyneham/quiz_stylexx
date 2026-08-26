@@ -9,119 +9,81 @@ const templateHTML = `<div class="hangman-root">
       <div class="status-actions"><button class="home-button" id="homeButton" type="button" aria-label="Back to Home" title="Home">Home</button><button class="fullscreen-btn" id="fullscreenBtn" type="button" aria-label="Toggle fullscreen" title="Fullscreen">⛶</button></div>
 <button class="topics-btn" id="topicsBtn" type="button">Topics <span id="topicsCount">All</span></button>
       <div class="skull-counter" id="triesText" aria-label="0 of 6 misses">
-          <span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span>
+        <span class="miss-skull" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 4 8 4 14.2c0 4.1 2.1 7.2 5.6 8.8v4h3v2h2v-3h3v3h2v-2h3v-4c3.4-1.6 5.4-4.7 5.4-8.8C28 8 23.2 3 16 3Zm-5 14.5c-2 0-3.4-1.4-3.4-3.2S9 11.2 11 11.2s3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2Zm10 0c-2 0-3.4-1.4-3.4-3.2s1.4-3.1 3.4-3.1 3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2ZM13 21h6l-3 3-3-3Z"/></svg></span>
+        <span class="miss-skull" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 4 8 4 14.2c0 4.1 2.1 7.2 5.6 8.8v4h3v2h2v-3h3v3h2v-2h3v-4c3.4-1.6 5.4-4.7 5.4-8.8C28 8 23.2 3 16 3Zm-5 14.5c-2 0-3.4-1.4-3.4-3.2S9 11.2 11 11.2s3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2Zm10 0c-2 0-3.4-1.4-3.4-3.2s1.4-3.1 3.4-3.1 3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2ZM13 21h6l-3 3-3-3Z"/></svg></span>
+        <span class="miss-skull" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 4 8 4 14.2c0 4.1 2.1 7.2 5.6 8.8v4h3v2h2v-3h3v3h2v-2h3v-4c3.4-1.6 5.4-4.7 5.4-8.8C28 8 23.2 3 16 3Zm-5 14.5c-2 0-3.4-1.4-3.4-3.2S9 11.2 11 11.2s3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2Zm10 0c-2 0-3.4-1.4-3.4-3.2s1.4-3.1 3.4-3.1 3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2ZM13 21h6l-3 3-3-3Z"/></svg></span>
+        <span class="miss-skull" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 4 8 4 14.2c0 4.1 2.1 7.2 5.6 8.8v4h3v2h2v-3h3v3h2v-2h3v-4c3.4-1.6 5.4-4.7 5.4-8.8C28 8 23.2 3 16 3Zm-5 14.5c-2 0-3.4-1.4-3.4-3.2S9 11.2 11 11.2s3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2Zm10 0c-2 0-3.4-1.4-3.4-3.2s1.4-3.1 3.4-3.1 3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2ZM13 21h6l-3 3-3-3Z"/></svg></span>
+        <span class="miss-skull" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 4 8 4 14.2c0 4.1 2.1 7.2 5.6 8.8v4h3v2h2v-3h3v3h2v-2h3v-4c3.4-1.6 5.4-4.7 5.4-8.8C28 8 23.2 3 16 3Zm-5 14.5c-2 0-3.4-1.4-3.4-3.2S9 11.2 11 11.2s3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2Zm10 0c-2 0-3.4-1.4-3.4-3.2s1.4-3.1 3.4-3.1 3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2ZM13 21h6l-3 3-3-3Z"/></svg></span>
+        <span class="miss-skull" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 4 8 4 14.2c0 4.1 2.1 7.2 5.6 8.8v4h3v2h2v-3h3v3h2v-2h3v-4c3.4-1.6 5.4-4.7 5.4-8.8C28 8 23.2 3 16 3Zm-5 14.5c-2 0-3.4-1.4-3.4-3.2S9 11.2 11 11.2s3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2Zm10 0c-2 0-3.4-1.4-3.4-3.2s1.4-3.1 3.4-3.1 3.4 1.3 3.4 3.1-1.4 3.2-3.4 3.2ZM13 21h6l-3 3-3-3Z"/></svg></span>
+      </div><span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span>
           <span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span><span class="miss-skull" aria-hidden="true">☠</span>
         </div>
     </div>
 
     <div class="hangman-wrap">
-      <svg class="hangman" viewBox="0 0 300 240" preserveAspectRatio="xMidYMid meet" aria-label="Hangman drawing">
-        <defs>
-          <linearGradient id="woodMain" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#6f451f"/>
-            <stop offset="45%" stop-color="#9a6735"/>
-            <stop offset="100%" stop-color="#5a3518"/>
-          </linearGradient>
-          <linearGradient id="woodLight" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#b7834f"/>
-            <stop offset="50%" stop-color="#d0a06a"/>
-            <stop offset="100%" stop-color="#8a5b2d"/>
-          </linearGradient>
-          <linearGradient id="woodDark" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#5b3518"/>
-            <stop offset="100%" stop-color="#3f2410"/>
-          </linearGradient>
-          <linearGradient id="ropeGold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#d8aa57"/>
-            <stop offset="50%" stop-color="#b97c2b"/>
-            <stop offset="100%" stop-color="#875516"/>
-          </linearGradient>
-        </defs>
+      <svg class="hangman persona-hangman" viewBox="0 0 300 240" preserveAspectRatio="xMidYMid meet" aria-label="Persona-style hangman drawing">
+        <!-- Persona-style scaffold: white under-shape, black core, red cuts -->
+        <path class="p5-scaffold-outline" d="M43 229 L55 207 L59 50 L46 42 L57 25 L225 18 L236 29 L225 44 L89 47 L88 211 L106 221 L100 235 L55 236 Z"/>
+        <path class="p5-scaffold-main" d="M51 226 L64 204 L67 49 L56 42 L64 31 L222 25 L228 30 L219 38 L80 41 L79 214 L98 224 L94 230 L61 231 Z"/>
+        <path class="p5-scaffold-cut" d="M59 176 L80 144 L79 194 L64 215 Z"/>
+        <path class="p5-scaffold-cut" d="M71 68 L96 42 L116 41 L82 79 Z"/>
+        <path class="p5-scaffold-cut" d="M50 228 L72 211 L98 225 L89 233 Z"/>
 
-        <!-- wooden scaffold -->
-        <rect class="wood-piece wood-main" x="48" y="18" width="174" height="22" rx="1.2"/>
-        <rect class="wood-piece wood-main" x="65" y="38" width="22" height="198" rx="1.2"/>
+        <!-- jagged feet -->
+        <path class="p5-scaffold-outline" d="M35 233 L52 216 L69 224 L82 214 L96 226 L112 217 L127 235 Z"/>
+        <path class="p5-scaffold-main" d="M43 233 L55 222 L69 229 L82 220 L96 231 L108 224 L117 235 Z"/>
+        <path class="p5-scaffold-cut" d="M55 230 L70 222 L82 232 Z"/>
 
-        <!-- stabilizer feet -->
-        <rect class="wood-piece wood-dark" x="44" y="224" width="28" height="12" rx="1"/>
-        <rect class="wood-piece wood-dark" x="80" y="224" width="28" height="12" rx="1"/>
+        <!-- rope -->
+        <path class="p5-rope-shadow" d="M209 40 L209 77 C209 84 205 88 205 96"/>
+        <path class="p5-rope" d="M206 40 L206 77 C206 84 202 88 202 96"/>
+        <path class="p5-knot" d="M199 72 L211 72 L212 79 L198 79 Z"/>
 
-        <!-- diagonal support braces -->
-        <line class="wood-brace wood-light" x1="84" y1="86" x2="128" y2="40"/>
-        <line class="wood-brace wood-dark-line" x1="84" y1="116" x2="157" y2="40"/>
-
-        <!-- subtle wood grain -->
-        <line class="wood-grain" x1="58" y1="27" x2="118" y2="27"/>
-        <line class="wood-grain" x1="137" y1="31" x2="203" y2="31"/>
-        <line class="wood-grain" x1="75" y1="58" x2="75" y2="112"/>
-        <line class="wood-grain" x1="78" y1="142" x2="78" y2="206"/>
-
-        <!-- rope stem -->
-        <line class="rope-under" x1="205" y1="40" x2="205" y2="68"/>
-        <line class="rope-main" x1="205" y1="40" x2="205" y2="68"/>
-
-        <!-- compact wrapped knot -->
-        <rect class="rope-knot-under" x="197" y="66" width="16" height="11" rx="3.5"/>
-        <rect class="rope-knot-main" x="198.5" y="67.5" width="13" height="8" rx="3"/>
-        <line class="rope-wrap" x1="200" y1="70" x2="210" y2="70"/>
-        <line class="rope-wrap" x1="199.5" y1="73.5" x2="210.5" y2="73.5"/>
-
-        <!-- rear noose sides: behind head -->
-        <path class="rope-under noose-rear" d="M199 76 C195 83 194 93 196 103"/>
-        <path class="rope-main noose-rear" d="M199 76 C195 83 194 93 196 103"/>
-        <path class="rope-under noose-rear" d="M211 76 C215 83 216 93 214 103"/>
-        <path class="rope-main noose-rear" d="M211 76 C215 83 216 93 214 103"/>
-
-        <!-- rope texture on stem -->
-        <line class="rope-texture" x1="201" y1="46" x2="209" y2="49"/>
-        <line class="rope-texture" x1="201" y1="54" x2="209" y2="57"/>
-        <line class="rope-texture" x1="201" y1="62" x2="209" y2="65"/>
-
-        <!-- six mistakes: stylized illustrated figure, each part draws itself -->
-        <!-- 1: slightly organic head instead of a perfect geometric circle -->
-        <path class="stage body-head draw-part" id="s1"
-              pathLength="100"
-              d="M205 74
-                 C216 74 224 81 223 92
-                 C223 103 216 110 205 110
-                 C194 110 187 103 187 92
-                 C187 81 194 74 205 74 Z"/>
-        <!-- Game-over eyes: sketched only at 6/6 misses -->
-        <g class="dead-eyes" aria-hidden="true">
-          <path class="dead-eye eye-left" pathLength="100"
-                d="M195.5 86.5 L201 92 M201 86.5 L195.5 92"/>
-          <path class="dead-eye eye-right" pathLength="100"
-                d="M209 86.5 L214.5 92 M214.5 86.5 L209 92"/>
+        <!-- 1: Joker head, hair and mask -->
+        <g class="stage joker-stage" id="s1">
+          <path class="joker-hair" d="M202 76 L194 67 L199 57 L207 65 L213 53 L218 66 L228 60 L224 75 L231 80 L220 83 L222 95 L211 105 L197 101 L189 91 L191 80 Z"/>
+          <path class="joker-face" d="M193 81 Q204 73 217 81 L215 94 Q205 103 195 94 Z"/>
+          <path class="joker-mask" d="M194 83 Q199 78 204 82 Q210 78 216 83 L212 90 Q207 87 204 91 Q200 87 197 90 Z"/>
+          <path class="joker-eye" d="M198 84 L202 86"/>
+          <path class="joker-eye" d="M210 86 L214 84"/>
         </g>
 
-        <!-- 2: subtly tapered/curved torso -->
-        <path class="stage body-core draw-part" id="s2"
-              pathLength="100"
-              d="M205 110 C204 123 204 140 205 156"/>
+        <!-- 2: torso and coat body -->
+        <g class="stage joker-stage" id="s2">
+          <path class="joker-coat" d="M198 102 L211 102 L218 117 L214 154 L205 166 L195 154 L192 117 Z"/>
+          <path class="joker-lapel" d="M197 106 L204 116 L211 105"/>
+          <path class="joker-shirt" d="M204 114 L207 145"/>
+          <path class="joker-coat-tail-center" d="M198 151 L205 172 L212 151"/>
+        </g>
 
-        <!-- 3–4: arms with a slight natural bend -->
-        <path class="stage body-limb draw-part" id="s3"
-              pathLength="100"
-              d="M204 122 C194 127 185 135 176 144"/>
-        <path class="stage body-limb draw-part" id="s4"
-              pathLength="100"
-              d="M206 122 C216 127 225 135 234 144"/>
+        <!-- 3: left arm + red glove -->
+        <g class="stage joker-stage" id="s3">
+          <path class="joker-limb" d="M195 113 Q184 122 176 143"/>
+          <path class="joker-glove" d="M171 140 L178 139 L181 148 L174 152 L169 148 Z"/>
+        </g>
 
-        <!-- 5–6: legs with a subtle outward curve -->
-        <path class="stage body-limb draw-part" id="s5"
-              pathLength="100"
-              d="M204 155 C196 166 190 181 183 195"/>
-        <path class="stage body-limb draw-part" id="s6"
-              pathLength="100"
-              d="M206 155 C214 166 220 181 227 195"/>
+        <!-- 4: right arm + red glove -->
+        <g class="stage joker-stage" id="s4">
+          <path class="joker-limb" d="M214 113 Q226 122 234 143"/>
+          <path class="joker-glove" d="M230 140 L237 139 L241 148 L235 152 L228 148 Z"/>
+        </g>
 
-        <!-- front collar of noose: visible around neck after head appears -->
-        <path class="noose-front-under" d="M196 103 C198 111 201 114 205 115 C209 114 212 111 214 103"/>
-        <path class="noose-front-main" d="M196 103 C198 111 201 114 205 115 C209 114 212 111 214 103"/>
+        <!-- 5: left leg + left coat tail -->
+        <g class="stage joker-stage" id="s5">
+          <path class="joker-leg" d="M201 161 Q196 176 191 197"/>
+          <path class="joker-boot" d="M186 198 L193 194 L196 201 L189 207 L184 204 Z"/>
+          <path class="joker-tail" d="M198 148 L187 177 L199 170"/>
+        </g>
 
-        <!-- tiny rope texture on front collar -->
-        <path class="rope-texture front-texture" d="M199 108 L202 110"/>
-        <path class="rope-texture front-texture" d="M208 110 L211 108"/>
+        <!-- 6: right leg + right coat tail -->
+        <g class="stage joker-stage" id="s6">
+          <path class="joker-leg" d="M209 161 Q214 176 219 197"/>
+          <path class="joker-boot" d="M216 201 L222 194 L227 198 L226 204 L220 207 Z"/>
+          <path class="joker-tail" d="M212 148 L224 177 L211 170"/>
+        </g>
+
+        <!-- noose front appears with head -->
+        <path class="p5-noose-front" d="M194 96 C195 107 199 111 205 112 C211 111 215 107 216 96"/>
       </svg>
     </div>
 
@@ -221,48 +183,6 @@ function initializeHangmanPokemon(root, app) {
   const KEY_HAPTIC_MS = 6;
   const ENTER_HAPTIC_MS = 8;
   const KEY_POPUP_MS = 105;
-
-
-  function decorateJokerHangman(){
-    const svg = shadow.querySelector(".hangman-svg, svg");
-    if(!svg || svg.querySelector(".joker-ui-decoration")) return;
-    const head = svg.querySelector("#head");
-    if(!head) return;
-
-    const ns="http://www.w3.org/2000/svg";
-    const g=document.createElementNS(ns,"g");
-    g.setAttribute("class","joker-ui-decoration");
-    g.setAttribute("pointer-events","none");
-
-    const bb=head.getBBox ? head.getBBox() : {x:120,y:90,width:42,height:42};
-    const cx=bb.x+bb.width/2, cy=bb.y+bb.height/2;
-
-    const hair=document.createElementNS(ns,"path");
-    hair.setAttribute("d",`M ${cx-20} ${cy-7} L ${cx-11} ${cy-27} L ${cx-3} ${cy-18} L ${cx+5} ${cy-31} L ${cx+11} ${cy-16} L ${cx+22} ${cy-23} L ${cx+17} ${cy-4} Z`);
-    hair.setAttribute("fill","#050505");
-    hair.setAttribute("stroke","#fff");
-    hair.setAttribute("stroke-width","2.2");
-
-    const mask=document.createElementNS(ns,"path");
-    mask.setAttribute("class","joker-mask");
-    mask.setAttribute("d",`M ${cx-16} ${cy-5} Q ${cx-8} ${cy-12} ${cx} ${cy-7} Q ${cx+8} ${cy-12} ${cx+16} ${cy-5} L ${cx+9} ${cy+5} Q ${cx+4} ${cy+1} ${cx} ${cy+4} Q ${cx-4} ${cy+1} ${cx-9} ${cy+5} Z`);
-    mask.setAttribute("fill","#fff");
-    mask.setAttribute("stroke","#050505");
-    mask.setAttribute("stroke-width","1.8");
-
-    g.append(hair,mask);
-    head.parentNode.appendChild(g);
-  }
-
-  function updateSkullCounter(){
-    const missCount = wrongGuesses instanceof Set ? wrongGuesses.size :
-      Array.isArray(wrongGuesses) ? wrongGuesses.length :
-      (typeof wrongCount === "number" ? wrongCount : 0);
-    triesText?.setAttribute("aria-label", `${missCount} of ${maxWrong ?? 6} misses`);
-    triesText?.querySelectorAll(".miss-skull").forEach((skull, i) => {
-      skull.classList.toggle("active", i < missCount);
-    });
-  }
 
 
   function vibrate(p){ if("vibrate" in navigator) navigator.vibrate(p); }
@@ -365,8 +285,10 @@ function initializeHangmanPokemon(root, app) {
       slots.appendChild(el);
     }
     missesList.textContent=misses.length?misses.join(" · "):"";
-    triesText.textContent=`${wrongCount} / 6 misses`;
-    triesText.classList.toggle("warning",wrongCount>=4);
+    triesText.setAttribute("aria-label",`${wrongCount} of 6 misses`);
+    triesText.querySelectorAll(".miss-skull").forEach((skull,i)=>{
+      skull.classList.toggle("active",i<wrongCount);
+    });
     for(let i=1;i<=6;i++) root.getElementById("s"+i)?.classList.toggle("show",i<=wrongCount);
     root.querySelector(".hangman")?.classList.toggle("head-revealed", wrongCount >= 1);
     root.querySelector(".hangman")?.classList.toggle("game-over", wrongCount >= 6);
