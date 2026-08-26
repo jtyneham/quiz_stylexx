@@ -1,4 +1,4 @@
-import { initRandomLetter } from "./games/rngl.js";
+import { initRandomLetter } from "./games/rngl.js?v=p5r3";
 
 const screens={
   home:document.getElementById("homeScreen"),
@@ -61,7 +61,7 @@ async function openTile(tile){
 
   if(file==="missingword.html"){
     if(!missingWordLoaded){
-      const module=await import("./games/missing-word.js");
+      const module=await import("./games/missing-word.js?v=p5r3");
       module.registerMissingWord(api);
       missingWordLoaded=true;
     }
@@ -71,7 +71,7 @@ async function openTile(tile){
 
   if(file==="missingwordpokemon.html"){
     if(!missingWordPokemonLoaded){
-      const module=await import("./games/missing-word-pokemon.js");
+      const module=await import("./games/missing-word-pokemon.js?v=p5r3");
       module.registerMissingWordPokemon(api);
       missingWordPokemonLoaded=true;
     }
@@ -81,7 +81,7 @@ async function openTile(tile){
 
   if(file==="hangman1.html"){
     if(!hangmanLoaded){
-      const module=await import("./games/hangman.js");
+      const module=await import("./games/hangman.js?v=p5r3");
       module.registerHangman(api);
       hangmanLoaded=true;
     }
@@ -92,7 +92,7 @@ async function openTile(tile){
 
   if(file==="hangmanpokemon.html"){
     if(!hangmanPokemonLoaded){
-      const module=await import("./games/hangman-pokemon.js");
+      const module=await import("./games/hangman-pokemon.js?v=p5r3");
       module.registerHangmanPokemon(api);
       hangmanPokemonLoaded=true;
     }
