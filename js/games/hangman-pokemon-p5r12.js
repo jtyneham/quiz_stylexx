@@ -12,6 +12,15 @@ const templateHTML = `<div class="hangman-root">
     </div>
 
     <div class="hangman-wrap">
+      <div class="raster-hangman" role="img" aria-label="Persona-style gallows and progressive Joker figure">
+        <img class="raster-scaffold" src="assets/hangman/persona-scaffold.png" alt="" />
+        <span class="raster-joker-stage stage" id="s1"><img src="assets/hangman/joker-master.png" alt="" /></span>
+        <span class="raster-joker-stage stage" id="s2"><img src="assets/hangman/joker-master.png" alt="" /></span>
+        <span class="raster-joker-stage stage" id="s3"><img src="assets/hangman/joker-master.png" alt="" /></span>
+        <span class="raster-joker-stage stage" id="s4"><img src="assets/hangman/joker-master.png" alt="" /></span>
+        <span class="raster-joker-stage stage" id="s5"><img src="assets/hangman/joker-master.png" alt="" /></span>
+        <span class="raster-joker-stage stage" id="s6"><img src="assets/hangman/joker-master.png" alt="" /></span>
+      </div>
       <svg class="hangman persona-hangman persona-hangman-v12" viewBox="0 0 420 330" preserveAspectRatio="xMidYMid meet" aria-label="Persona-style hangman drawing">
   <!-- =========================
        SCAFFOLD — layered, modular
@@ -36,6 +45,9 @@ const templateHTML = `<div class="hangman-root">
     <path class="white-slice" d="M81 221 L88 207 L88 255 L82 267 Z"/>
     <path class="white-slice" d="M105 51 L126 51 L111 60 L98 61 Z"/>
     <path class="white-slice" d="M58 301 L69 296 L80 308 L69 311 Z"/>
+    <path class="white-slice" d="M74 145 L87 125 L85 169 L77 184 Z"/>
+    <path class="white-slice" d="M43 313 L55 297 L58 315 Z"/>
+    <path class="white-slice" d="M148 48 L176 47 L162 54 L137 55 Z"/>
   </g>
 
   <g class="p5-scaffold scaffold-red-accents">
@@ -50,13 +62,14 @@ const templateHTML = `<div class="hangman-root">
     <path class="rope-main" d="M287 50 L287 104 C287 116 283 123 283 136"/>
     <path class="rope-wrap" d="M279 97 L295 97 L297 103 L278 103 Z"/>
     <path class="rope-wrap-dark" d="M281 102 L294 102 L296 108 L280 108 Z"/>
+    <path class="rope-fiber" d="M284 54l6 5m-6 4l6 5m-6 4l6 5m-6 4l6 5m-6 4l6 5"/>
   </g>
 
   <!-- =========================
        STAGE 1 — HEAD / HAIR / MASK
        ========================= -->
-  <g class="stage joker-stage" id="s1">
-    <g class="joker-head-group">
+  <g class="stage joker-stage" id="legacy-s1">
+    <g class="joker-head-group" transform="translate(135 70) scale(.55)">
       <path class="hair-outline" d="M282 135 L271 126 L274 116 L281 119 L285 107 L291 113 L295 99 L301 113 L311 105 L311 118 L323 112 L320 126 L328 132 L320 140 L322 153 L313 161 L302 166 L288 164 L277 156 L273 145 Z"/>
       <path class="hair-core" d="M283 134 L274 126 L278 119 L284 122 L287 112 L292 118 L296 105 L301 118 L309 111 L309 123 L319 118 L316 130 L323 133 L316 139 L318 151 L311 157 L301 161 L290 159 L281 153 L278 144 Z"/>
       <path class="hair-red-accent" d="M295 111 L300 106 L301 121 L297 124 Z"/>
@@ -74,8 +87,8 @@ const templateHTML = `<div class="hangman-root">
   <!-- =========================
        STAGE 2 — TORSO / COAT / LAPELS
        ========================= -->
-  <g class="stage joker-stage" id="s2">
-    <g class="joker-torso-group">
+  <g class="stage joker-stage" id="legacy-s2">
+    <g class="joker-torso-group" transform="translate(135 70) scale(.55)">
       <path class="coat-outline" d="M286 166 L311 166 L321 185 L319 236 L312 250 L305 264 L293 264 L284 249 L279 235 L279 185 Z"/>
       <path class="coat-core" d="M289 168 L309 168 L317 186 L315 233 L309 247 L302 258 L295 258 L287 247 L283 233 L283 186 Z"/>
       <path class="lapel-left" d="M289 170 L299 184 L292 194 L285 181 Z"/>
@@ -94,8 +107,8 @@ const templateHTML = `<div class="hangman-root">
   <!-- =========================
        STAGE 3 — LEFT ARM / CUFF / GLOVE
        ========================= -->
-  <g class="stage joker-stage" id="s3">
-    <g class="joker-left-arm-group">
+  <g class="stage joker-stage" id="legacy-s3">
+    <g class="joker-left-arm-group" transform="translate(135 70) scale(.55)">
       <path class="arm-outline" d="M284 181 Q266 193 252 221 L259 228 Q274 206 291 196 Z"/>
       <path class="arm-core" d="M285 184 Q270 195 257 220 L261 224 Q276 203 291 194 Z"/>
       <path class="cuff-outline" d="M252 218 L262 219 L266 229 L257 234 L249 228 Z"/>
@@ -109,8 +122,8 @@ const templateHTML = `<div class="hangman-root">
   <!-- =========================
        STAGE 4 — RIGHT ARM / CUFF / GLOVE
        ========================= -->
-  <g class="stage joker-stage" id="s4">
-    <g class="joker-right-arm-group">
+  <g class="stage joker-stage" id="legacy-s4">
+    <g class="joker-right-arm-group" transform="translate(135 70) scale(.55)">
       <path class="arm-outline" d="M314 181 Q332 193 346 221 L339 228 Q324 206 307 196 Z"/>
       <path class="arm-core" d="M313 184 Q328 195 341 220 L337 224 Q322 203 307 194 Z"/>
       <path class="cuff-outline" d="M346 218 L336 219 L332 229 L341 234 L349 228 Z"/>
@@ -124,8 +137,8 @@ const templateHTML = `<div class="hangman-root">
   <!-- =========================
        STAGE 5 — LEFT LEG / LEFT COAT TAIL
        ========================= -->
-  <g class="stage joker-stage" id="s5">
-    <g class="joker-left-leg-group">
+  <g class="stage joker-stage" id="legacy-s5">
+    <g class="joker-left-leg-group" transform="translate(135 70) scale(.55)">
       <path class="leg-outline" d="M296 258 Q289 276 279 300 L287 305 Q299 284 304 264 Z"/>
       <path class="leg-core" d="M297 260 Q292 278 283 299 L287 301 Q297 283 302 263 Z"/>
       <path class="boot-outline" d="M276 299 L288 296 L294 304 L288 314 L276 316 L268 311 Z"/>
@@ -139,8 +152,8 @@ const templateHTML = `<div class="hangman-root">
   <!-- =========================
        STAGE 6 — RIGHT LEG / RIGHT COAT TAIL
        ========================= -->
-  <g class="stage joker-stage" id="s6">
-    <g class="joker-right-leg-group">
+  <g class="stage joker-stage" id="legacy-s6">
+    <g class="joker-right-leg-group" transform="translate(135 70) scale(.55)">
       <path class="leg-outline" d="M303 258 Q310 276 320 300 L312 305 Q300 284 295 264 Z"/>
       <path class="leg-core" d="M302 260 Q307 278 316 299 L312 301 Q302 283 297 263 Z"/>
       <path class="boot-outline" d="M323 299 L311 296 L305 304 L311 314 L323 316 L331 311 Z"/>
@@ -554,7 +567,7 @@ class QuizHangmanPokemon extends HTMLElement {
     const root = this.attachShadow({ mode: "open" });
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "css/hangman-pokemon-p5r12.css";
+    link.href = "css/hangman-pokemon-p5r12.css?v=17";
     const wrapper = document.createElement("div");
     wrapper.innerHTML = templateHTML;
     root.append(link, wrapper);

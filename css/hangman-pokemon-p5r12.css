@@ -2060,3 +2060,59 @@ button,input{font-family:Arial,Helvetica,sans-serif!important}
     width:min(82vw,39svh)!important;
   }
 }
+
+/* v13 artwork lockup: one coherent mockup-faithful composition. */
+.hangman-wrap{overflow:hidden!important;isolation:isolate!important}
+.persona-hangman-v12{
+  width:auto!important;height:100%!important;max-width:min(82vw,38rem)!important;
+  filter:drop-shadow(.16rem .18rem 0 rgba(0,0,0,.28))!important;
+}
+.persona-hangman-v12 .p5-scaffold{filter:none!important}
+.persona-hangman-v12 .scaffold-shadow{transform:translate(3px,4px)!important}
+.persona-hangman-v12 .outline-fill{stroke-width:3.4!important}
+.persona-hangman-v12 .core-fill{stroke-width:2!important}
+.persona-hangman-v12 .white-slice{filter:drop-shadow(1px 1px 0 #050505)!important}
+.persona-hangman-v12 .red-slice{stroke-width:1.2!important}
+.persona-hangman-v12 .rope-main{stroke:#ead5aa!important;stroke-width:3.5!important;stroke-dasharray:1.6 1.05!important}
+.persona-hangman-v12 .rope-fiber{fill:none!important;stroke:#6f4e2d!important;stroke-width:.8!important;stroke-linecap:round!important}
+.persona-hangman-v12 .joker-stage{
+  transform-box:fill-box!important;transform-origin:center!important;
+}
+.persona-hangman-v12 .joker-stage.show{animation:jokerStageInV13 .18s cubic-bezier(.18,.88,.3,1.2) both!important}
+.persona-hangman-v12 .joker-stage.drawn.show{animation:none!important}
+@keyframes jokerStageInV13{
+  from{opacity:0;filter:blur(1px)}
+  to{opacity:1;filter:blur(0)}
+}
+.persona-hangman-v12 .hair-outline,
+.persona-hangman-v12 .coat-outline,
+.persona-hangman-v12 .arm-outline,
+.persona-hangman-v12 .leg-outline,
+.persona-hangman-v12 .coat-tail-left-outline,
+.persona-hangman-v12 .coat-tail-right-outline{stroke-width:3!important;stroke-linejoin:miter!important}
+.persona-hangman-v12 .hair-core,
+.persona-hangman-v12 .coat-core,
+.persona-hangman-v12 .arm-core,
+.persona-hangman-v12 .leg-core{fill:#080808!important}
+.persona-hangman-v12 .mask-outline{stroke-width:2.6!important}
+.persona-hangman-v12 .mask-red-slit{stroke-width:2.4!important}
+.persona-hangman-v12 .glove-outline{fill:#fff!important;stroke:#050505!important;stroke-width:2.5!important}
+.persona-hangman-v12 .glove-core{fill:#e60012!important;stroke:#fff!important;stroke-width:1.8!important}
+.persona-hangman-v12 .coat-tail-center{stroke-width:2.5!important}
+@media(max-height:46rem){.persona-hangman-v12{max-width:min(76vw,32rem)!important}}
+
+/* Generated raster artwork: scaffold + one consistently masked Joker master. */
+.persona-hangman-v12{display:none!important}
+.raster-hangman{position:relative;height:100%;aspect-ratio:1199/1312;max-width:92vw;overflow:visible}
+.raster-scaffold{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;user-select:none;pointer-events:none}
+.raster-joker-stage{position:absolute!important;left:49.5%;top:41.5%;width:36%;height:57%;opacity:0;overflow:hidden;pointer-events:none;transform-origin:50% 10%}
+.raster-joker-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;user-select:none}
+.raster-joker-stage.show{opacity:1;animation:rasterJokerIn .18s cubic-bezier(.2,.85,.25,1.15) both}
+.raster-joker-stage#s1{clip-path:polygon(0 0,100% 0,100% 25%,0 25%)}
+.raster-joker-stage#s2{clip-path:polygon(23% 20%,77% 20%,77% 55%,23% 55%)}
+.raster-joker-stage#s3{clip-path:polygon(0 20%,51% 20%,51% 58%,0 58%)}
+.raster-joker-stage#s4{clip-path:polygon(49% 20%,100% 20%,100% 58%,49% 58%)}
+.raster-joker-stage#s5{clip-path:polygon(0 50%,52% 50%,52% 100%,0 100%)}
+.raster-joker-stage#s6{clip-path:polygon(48% 50%,100% 50%,100% 100%,48% 100%)}
+@keyframes rasterJokerIn{from{opacity:0;transform:scale(.88) rotate(-1deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@media(prefers-reduced-motion:reduce){.raster-joker-stage.show{animation:none}}

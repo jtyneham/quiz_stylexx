@@ -81,7 +81,7 @@ async function openTile(tile){
 
   if(file==="hangman1.html"){
     if(!hangmanLoaded){
-      const module=await import("./games/hangman-p5r12.js");
+      const module=await import("./games/hangman-p5r12.js?v=18");
       module.registerHangman(api);
       hangmanLoaded=true;
     }
@@ -92,7 +92,7 @@ async function openTile(tile){
 
   if(file==="hangmanpokemon.html"){
     if(!hangmanPokemonLoaded){
-      const module=await import("./games/hangman-pokemon-p5r12.js");
+      const module=await import("./games/hangman-pokemon-p5r12.js?v=18");
       module.registerHangmanPokemon(api);
       hangmanPokemonLoaded=true;
     }
