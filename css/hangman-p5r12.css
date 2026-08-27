@@ -2112,14 +2112,17 @@ button,input{font-family:Arial,Helvetica,sans-serif!important}
 .persona-hangman-v12{display:none!important}
 .raster-hangman{position:relative;height:100%;aspect-ratio:1199/1312;max-width:92vw;overflow:visible}
 .raster-scaffold{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;user-select:none;pointer-events:none}
-.raster-joker-stage{position:absolute!important;left:49.5%;top:41.5%;width:36%;height:57%;opacity:0;overflow:hidden;pointer-events:none;transform-origin:50% 10%}
+.raster-joker-stage{position:absolute!important;left:47.5%;top:29.5%;width:40%;height:59%;opacity:0;overflow:hidden;pointer-events:none;transform-origin:50% 10%;z-index:2}
+.raster-scaffold-short{opacity:0}
+.raster-hangman.head-revealed>.raster-scaffold:not(.raster-scaffold-short){opacity:0}
+.raster-hangman.head-revealed>.raster-scaffold-short{opacity:1}
 .raster-joker-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;user-select:none}
 .raster-joker-stage.show{opacity:1;animation:rasterJokerIn .18s cubic-bezier(.2,.85,.25,1.15) both}
 .raster-joker-stage#s1{clip-path:polygon(0 0,100% 0,100% 25%,0 25%)}
-.raster-joker-stage#s2{clip-path:polygon(23% 20%,77% 20%,77% 55%,23% 55%)}
-.raster-joker-stage#s3{clip-path:polygon(0 20%,51% 20%,51% 58%,0 58%)}
-.raster-joker-stage#s4{clip-path:polygon(49% 20%,100% 20%,100% 58%,49% 58%)}
-.raster-joker-stage#s5{clip-path:polygon(0 50%,52% 50%,52% 100%,0 100%)}
-.raster-joker-stage#s6{clip-path:polygon(48% 50%,100% 50%,100% 100%,48% 100%)}
+.raster-joker-stage#s2{clip-path:polygon(34% 18%,66% 18%,66% 51%,34% 51%)}
+.raster-joker-stage#s3{clip-path:polygon(17% 20%,36% 20%,45% 49%,38% 56%,9% 56%)}
+.raster-joker-stage#s4{clip-path:polygon(64% 20%,83% 20%,91% 56%,62% 56%,55% 49%)}
+.raster-joker-stage#s5{clip-path:polygon(0 47%,50.5% 47%,50.5% 100%,0 100%)}
+.raster-joker-stage#s6{clip-path:polygon(49.5% 47%,100% 47%,100% 100%,49.5% 100%)}
 @keyframes rasterJokerIn{from{opacity:0;transform:scale(.88) rotate(-1deg)}to{opacity:1;transform:scale(1) rotate(0)}}
 @media(prefers-reduced-motion:reduce){.raster-joker-stage.show{animation:none}}

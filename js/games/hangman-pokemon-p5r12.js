@@ -13,7 +13,8 @@ const templateHTML = `<div class="hangman-root">
 
     <div class="hangman-wrap">
       <div class="raster-hangman" role="img" aria-label="Persona-style gallows and progressive Joker figure">
-        <img class="raster-scaffold" src="assets/hangman/persona-scaffold.png" alt="" />
+        <img class="raster-scaffold" src="assets/hangman/persona-scaffold-idle.png" alt="" />
+        <img class="raster-scaffold raster-scaffold-short" src="assets/hangman/persona-scaffold-short-rope.png?v=23" alt="" />
         <span class="raster-joker-stage stage" id="s1"><img src="assets/hangman/joker-master.png" alt="" /></span>
         <span class="raster-joker-stage stage" id="s2"><img src="assets/hangman/joker-master.png" alt="" /></span>
         <span class="raster-joker-stage stage" id="s3"><img src="assets/hangman/joker-master.png" alt="" /></span>
@@ -367,6 +368,7 @@ function initializeHangmanPokemon(root, app) {
     triesText.querySelectorAll(".miss-skull").forEach((skull,i)=>skull.classList.toggle("active",i<wrongCount));
     for(let i=1;i<=6;i++) root.getElementById("s"+i)?.classList.toggle("show",i<=wrongCount);
     root.querySelector(".hangman")?.classList.toggle("head-revealed", wrongCount >= 1);
+    root.querySelector(".raster-hangman")?.classList.toggle("head-revealed", wrongCount >= 1);
     root.querySelector(".hangman")?.classList.toggle("game-over", wrongCount >= 6);
   }
   root.querySelectorAll(".draw-part").forEach(part=>{
@@ -567,7 +569,7 @@ class QuizHangmanPokemon extends HTMLElement {
     const root = this.attachShadow({ mode: "open" });
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "css/hangman-pokemon-p5r12.css?v=17";
+    link.href = "css/hangman-pokemon-p5r12.css?v=24";
     const wrapper = document.createElement("div");
     wrapper.innerHTML = templateHTML;
     root.append(link, wrapper);
